@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="tab">
+        <h1 class="tabtable" onclick="jump('home')">URL Profiles One Time</h1>
+        <ul style="padding-left: 0px;" class="tubs">
+            <li class="menu" onclick="jump('home')">ホーム</li>
+            <li class="menu" onclick="jump('newprofile')">新規プロフィール</li>
+            <li class="menu" onclick="jump('QandA')">よくある質問</li>
+        </ul>
+    </header>
+    <div style="margin:183.600px auto;display: none;" id="home">
+        <div style="padding:18px">
+        <h1 class="heading">簡単に自己紹介URLを作ろう</h1>
+        <h2>紹介内容を入力しよう</h2>
+        <p>ページ上部のタブの新規作成を押して自分の名前と性別誕生日などを入れよう</p>
+        <h2>URLを作成</h2>
+        <p>入力した後「紹介URLを作成」をおしてURLを作成しよう</p>
+        <p style="color: gray;">(※入力された情報は保存されません。)</p>
+        <h2>友達にURLを送ろう。</h2>
+        <p>実際にできたURLを友達に送ってみよう</p>
+        <a onclick="jump('newprofile')" class="canclick">プロフィール試しに作る→</a>
+        </div>
+    </div>
+    <div style="margin:183.600px auto;display: none;" id="profile">
+        <div style="display: flex;height:min-content;padding: 15px;padding: 15px;" class="line">
+            <h1 id="name">名前</h1>
+            <h1 id="s">♂</h1>
+            <span id="daytime"><span id="createtime">プロフィール作成日時</span></span>
+        </div>
+        <ul style="padding-left: 45px;" class="information">
+            <li>
+                誕生日:<span id="birthday">未設定</span>
+            </li>
+            <li>
+                年:<span id="age">未設定</span>歳
+            </li>
+            <li>
+                所属:<span id="school">未設定</span>
+            </li>
+            <li>
+                私について
+                <span id="aboutme">なし</span>
+            </li>
+        </ul>
+    </div>
+    <div style="margin:183.600px auto;display: none;" id="newprofile">
+        <div style="padding: 20px;">
+            <div class="question">
+                <label for="inputname" class="question">名前を入力</label>
+                <input type="text" class="textinput" id="inputname" name="name">
+                <br>
+                <input type="radio" id="man" name="inputgender">
+                <label for="man">男</label>
+                <input type="radio" id="woman" name="inputgender">
+                <label for="woman">女</label>
+                <br>
+                <label for="inputbirthday">誕生日を入力</label>
+                <input type="date" id="inputbirthday" name="birthday" value="2010-04-02">
+                <br>
+                <input type="number" id="inputage" name="inputage" value="10">
+                <label for="inputage">歳</label>
+                <br>
+                <label for="inputschool">所属・学校</label>
+                <input type="text" id="inputschool"><br>
+                <label for="inputaboutme">私について</label>
+                <br>
+                <textarea name="inputaboutme" id="inputaboutme" style="width:100%;width: max-content calc(100% - 100px);height: 10em;"></textarea>
+                <br>
+                <button type="botton" style="margin: 0 auto;display: block" class="button" onclick="createprofile()">URLを作成</button>
+                <h2 style="font-size: 27px;">作成されたリンクは以下に表示</h2>
+                <p id="newurl">まだリンクは作成されていません。</p>
+            </div>
+            
+        </div>
+    </div>
+    <div style="margin:183.600px auto;display: none;" id="QandA">
+        <div style="padding: 20px;">
+            <h1>Q.個人情報は保存されますか？</h1>
+            <h2>A.されません</h2>
+            <p>作られたプロフィールの情報は、すべてURLにすべて書かれています。なので入力された個人情報は保存されません。</p>
+            <h1>Q.どうやって送ればいいの？</h1>
+            <h2>A.URLを作成した後下に表示されます</h2>
+            <p>「URLを作成」ボタンを押した後に、ボタンの下を確認してください。きっと作られたリンクが表示されていることでしょう。</p>
+        </div>
+    </div>
+    <script>
+        let page;
+
+        const queryString = window.location.search;
+        console.log(queryString);
+
+        const params = new URLSearchParams(queryString);
+        console.log(params);
+
+        //それぞれの値を取得
+        const name = params.get('name');
+        const s = params.get('s');
+        const createtime = params.get('createtime');
+        const age = params.get('age');
+        const birthday = params.get('birthday');
+        const school = params.get('school');
+        const aboutme = params.get('aboutme');
+
+        if(params == "" || params.get('page') == 'home'){
+            console.log('home');
+            //ホームのページ
+            page = 'home';
+
+        }else if (params.get('page') == 'newprofile') {
+            console.log('newprofile')
+            //新しくプロフィールを作るページ
+            page = 'newprofile';
+
+        }else if (params.get('page') == 'QandA') {
+            console.log('Q&A')
+            //よくある質問ページ
+            page = 'QandA';
+            
+        } else {
+            //プロフィール表示サイトかも？？？もしかして404?
+            //それぞれの値を取得
+            const name = params.get('name');
+            const s = params.get('s');
+            const createtime = params.get('createtime');
+            const age = params.get('age');
+            const birthday = params.get('birthday');
+            const school = params.get('school');
+            const aboutme = params.get('aboutme');
+
+            //要素を入手出来ているか確認して少しでも情報が欠けていたら404と判定する
+            let Isprofiles = false;
+            if(params.size == 8) Isprofiles = true;
+            if(Isprofiles && params.get('page') == 'profile'){
+                console.log('profile');
+                //profile表示をする
+                page ='profile';
+
+                //それぞれの値を入れる要素を取得
+                const Ename = document.getElementById('name');
+                const Es = document.getElementById('s');
+                const Ecreatetime = document.getElementById('createtime');
+                const Eage = document.getElementById('age');
+                const Ebirthday = document.getElementById('birthday');
+                const Eschool = document.getElementById('school');
+                const Edetailed = document.getElementById('aboutme');
+
+                //要素へ代入
+                Ename.textContent = name;
+                Es.textContent = s;
+                Ecreatetime.textContent = createtime;
+                Eage.textContent = age;
+                Ebirthday.textContent = birthday;
+                Eschool.textContent = school;
+                Edetailed.textContent = aboutme;
+
+            }else{
+                console.log('404error');
+                //404エラー表示
+                page ='404';
+
+                //404エラー表示プログラム
+            }
+            
+        }
+        switch (page){
+            case 'profile':
+                const profile = document.getElementById('profile');//profileの要素取得
+                profile.style.display ='block';
+                break;
+            case 'home':
+                const home = document.getElementById('home');//profileの要素取得
+                home.style.display ='block';
+                break;
+            case 'newprofile':
+                const newprofile = document.getElementById('newprofile');//profileの要素取得
+                newprofile.style.display ='block';
+                break;
+            case 'QandA':
+                const qanda = document.getElementById('QandA');
+                qanda.style.display = 'block';
+                break;
+        }
+
+        function createprofile(){
+            //inputから取得する以下はこれから書き換える
+            const name = getinput('inputname');
+            let s ="";
+
+            //ラジオボタンのインプットが上手くいっていない問題を解決する。ちなみに’getinput('man')はすべてonと返すためほかの方法が必要
+            //name="inputgender"
+            const genderelement = document.getElementsByName('inputgender');
+            // genderelementの長さ取得
+            const genderlen = genderelement.length;
+            //何番目のボタンが押されているかを代入する変数
+            // let genderNo = '';
+
+            for(let i = 0;i < genderlen; ++i){
+                if(genderelement.item(i).checked){
+                    s = i;
+                    break;
+                }
+            }
+            console.log(s);
+            if(s == '0'){
+                s = '♂';
+            }else if(s == '1'){
+                s = '♀';
+            }
+            console.log(s);
+
+            const createtime = new Date();
+            const age = getinput('inputage');
+            const birthday = getinput('inputbirthday');
+            const school = getinput('inputschool');
+            const aboutme = getinput('inputaboutme');
+
+            const cancreate = name != '' && s != '' && createtime != '' && age != '' && birthday != '' && school != '' && aboutme != '';
+            
+            // alert(cancreate);
+            //profileリンクを作成、下に表示
+            if(cancreate){
+                const url = thisurl();
+            console.log('ago' + url);
+            const profilelink = "?page=profile&name="+ name + "&s=" + s + "&createtime=" + createtime + "&age=" + age + "&birthday=" + birthday + "&school=" + school + "&aboutme=" + aboutme;
+            const showurl = document.getElementById('newurl');
+            const copyurl = ''+ url + profilelink;
+            showurl.textContent = copyurl;          
+            }else{
+                alert('ちゃんと全部入力してから作成ボタンを押そう☆')
+            }
+              
+        }
+        function getinput(elementname){
+            let element = document.getElementById(elementname);
+            return element.value;
+        }
+        function thisurl(){
+            const url = window.location.href;
+            console.log('inputlocationURL' + url);
+            return url.replace(location.search , '');
+        }
+        function jump(to){
+            console.log(to);
+            const tourl = ''+ thisurl() + '?page=' +to;
+            window.location.href = tourl;
+        }
+    </script>
+</body>
+</html>
