@@ -21,7 +21,7 @@ body{
     font-size: 40px;
     height:30px;
     vertical-align: middle;
-    white-space: nowrap;
+    /* white-space: nowrap; */
     cursor:pointer;
 }
 .tubs{
@@ -40,7 +40,7 @@ body{
     font-size: 18px;
     list-style: none;
     border-right: 2px solid rgb(172, 172, 172);
-    white-space: nowrap;
+    /* white-space: nowrap; */
     cursor: pointer;
 }
 
@@ -62,6 +62,9 @@ body{
 #name{
     font-size: 33px;
     margin: 0;
+    white-space: narmal;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .heading{
     font-size: 33px;
@@ -84,7 +87,7 @@ body{
 li{
     font-weight:550;
     font-size: 18px;
-    white-space: nowrap;
+    overflow-wrap: break-word;
     padding-bottom: 0.3em;
 }
 
@@ -94,6 +97,7 @@ li{
     font-weight:500;
     align-content: end;
     margin-left: auto;
+    overflow-wrap: break-word;
 }
 #home{
     background-color:white;
