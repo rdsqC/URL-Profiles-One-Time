@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,11 +29,11 @@
         </div>
     </div>
     <div style="margin:183.600px auto;display: none;" id="profile">
-        <div style="display: flex;height:min-content;padding: 15px;padding: 15px;" class="line">
+        <span style="display: flex;height:min-content;padding: 15px;padding: 15px;" class="line">
             <h1 id="name">名前</h1>
             <h1 id="s">♂</h1>
             <span id="daytime"><span id="createtime">プロフィール作成日時</span></span>
-        </div>
+        </span>
         <ul style="padding-left: 45px;" class="information">
             <li>
                 誕生日:<span id="birthday">未設定</span>
@@ -222,8 +222,7 @@
             const aboutme = getinput('inputaboutme');
 
             const cancreate = name != '' && s != '' && createtime != '' && age != '' && birthday != '' && school != '' && aboutme != '';
-            
-            // alert(cancreate);
+
             //profileリンクを作成、下に表示
             if(cancreate){
                 const url = thisurl();
@@ -232,7 +231,8 @@
             const profilelink = removeSpaces(Sinlink);
             const showurl = document.getElementById('newurl');
             const copyurl = ''+ url + profilelink;
-            showurl.textContent = copyurl;          
+            showurl.textContent = copyurl;
+            window.location.href = profilelink;
             }else{
                 alert('ちゃんと全部入力してから作成ボタンを押そう☆')
             }
