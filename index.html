@@ -228,7 +228,8 @@
             if(cancreate){
                 const url = thisurl();
             console.log('ago' + url);
-            const profilelink = "?page=profile&name="+ name + "&s=" + s + "&createtime=" + createtime + "&age=" + age + "&birthday=" + birthday + "&school=" + school + "&aboutme=" + aboutme;
+            const Sinlink = "?page=profile&name="+ name + "&s=" + s + "&createtime=" + createtime + "&age=" + age + "&birthday=" + birthday + "&school=" + school + "&aboutme=" + aboutme;
+            const profilelink = removeSpaces(Sinlink);
             const showurl = document.getElementById('newurl');
             const copyurl = ''+ url + profilelink;
             showurl.textContent = copyurl;          
@@ -250,6 +251,9 @@
             console.log(to);
             const tourl = ''+ thisurl() + '?page=' +to;
             window.location.href = tourl;
+        }
+        function removeSpaces(inputString) {
+            return inputString.replace(/\s+/g, '');
         }
     </script>
 </body>
