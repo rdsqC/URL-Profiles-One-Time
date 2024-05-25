@@ -23,6 +23,7 @@ body{
     vertical-align: middle;
     /* white-space: nowrap; */
     cursor:pointer;
+    white-space: nowrap;
 }
 .tubs{
     display: flex;
@@ -31,6 +32,7 @@ body{
     background-color:white;
 }
 .menu{
+
     color:#1a0dab;
     background-color:white;
     width: auto;
@@ -42,6 +44,7 @@ body{
     border-right: 2px solid rgb(172, 172, 172);
     /* white-space: nowrap; */
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .menu:hover {
