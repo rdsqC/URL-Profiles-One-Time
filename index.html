@@ -42,7 +42,7 @@
                 年:<span id="age">未設定</span>歳
             </li>
             <li>
-                所属:<span id="school">未設定</span>
+                出身:<span id="Birthplace">未設定</span>
             </li>
             <li>
                 私について
@@ -67,8 +67,8 @@
                 <input type="number" id="inputage" name="inputage" value="10">
                 <label for="inputage">歳</label>
                 <br>
-                <label for="inputschool">所属・学校</label>
-                <input type="text" id="inputschool"><br>
+                <label for="inputBirthplace">出身</label>
+                <input type="text" id="inputBirthplace"><br>
                 <label for="inputaboutme">私について</label>
                 <br>
                 <textarea name="inputaboutme" id="inputaboutme" style="width:100%;width: max-content calc(100% - 100px);height: 10em;"></textarea>
@@ -105,7 +105,7 @@
         const createtime = params.get('createtime');
         const age = params.get('age');
         const birthday = params.get('birthday');
-        const school = params.get('school');
+        const Birthplace = params.get('Birthplace');
         const aboutme = params.get('aboutme');
 
         if(params == "" || params.get('page') == 'home'){
@@ -131,7 +131,7 @@
             const createtime = params.get('createtime');
             const age = params.get('age');
             const birthday = params.get('birthday');
-            const school = params.get('school');
+            const Birthplace = params.get('Birthplace');
             const aboutme = params.get('aboutme');
 
             //要素を入手出来ているか確認して少しでも情報が欠けていたら404と判定する
@@ -148,7 +148,7 @@
                 const Ecreatetime = document.getElementById('createtime');
                 const Eage = document.getElementById('age');
                 const Ebirthday = document.getElementById('birthday');
-                const Eschool = document.getElementById('school');
+                const EBirthplace = document.getElementById('Birthplace');
                 const Edetailed = document.getElementById('aboutme');
 
                 //要素へ代入
@@ -157,7 +157,7 @@
                 Ecreatetime.textContent = createtime;
                 Eage.textContent = age;
                 Ebirthday.textContent = birthday;
-                Eschool.textContent = school;
+                EBirthplace.textContent = Birthplace;
                 Edetailed.textContent = aboutme;
 
             }else{
@@ -218,16 +218,16 @@
             const createtime = new Date();
             const age = getinput('inputage');
             const birthday = getinput('inputbirthday');
-            const school = getinput('inputschool');
+            const Birthplace = getinput('inputBirthplace');
             const aboutme = getinput('inputaboutme');
 
-            const cancreate = name != '' && s != '' && createtime != '' && age != '' && birthday != '' && school != '' && aboutme != '';
+            const cancreate = name != '' && s != '' && createtime != '' && age != '' && birthday != '' && Birthplace != '' && aboutme != '';
 
             //profileリンクを作成、下に表示
             if(cancreate){
                 const url = thisurl();
             console.log('ago' + url);
-            const Sinlink = "?page=profile&name="+ name + "&s=" + s + "&createtime=" + createtime + "&age=" + age + "&birthday=" + birthday + "&school=" + school + "&aboutme=" + aboutme;
+            const Sinlink = "?page=profile&name="+ name + "&s=" + s + "&createtime=" + createtime + "&age=" + age + "&birthday=" + birthday + "&Birthplace=" + Birthplace + "&aboutme=" + aboutme;
             const profilelink = removeSpaces(Sinlink);
             const showurl = document.getElementById('newurl');
             const copyurl = ''+ url + profilelink;
