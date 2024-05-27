@@ -1,6 +1,6 @@
 # URL-Profiles-One-Time
 ### GitHubPages
-https://rdsqc.github.io/URL-Profiles-One-Time/
+[https://rdsqc.github.io/URL-Profiles-One-Time/](https://rdsqc.github.io/URL-Profiles-One-Time/)
 ## どんな物なのか
 これは情報を入力してプロフィールのURLを作成し、第三者が開くことで内容を確認できます。
 ## 仕組み
